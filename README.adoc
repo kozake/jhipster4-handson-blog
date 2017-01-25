@@ -2,23 +2,23 @@
 
 このドキュメントは、
 http://www.eclipse.org/community/eclipse_newsletter/2017/january/article3.php[Get Started with JHipster 4]
-の内容を元に作成した　https://jhipster.github.io/[JHipster] 4のハンズオン資料です。
+の内容を元に作成した https://jhipster.github.io/[JHipster] 4のハンズオン資料です。
 
 1/25日現在、JHipster 4はまだリリースされておりません。
-しかし、今後の開発ではAngular(2以降)での開発が主流となっていくと考えています。
-そこで、本ハンズオンではjHipsterのMasterブランチを用いたJHipster 4による開発を体験します。
+しかし、今後の開発ではAngular(2以降)での開発が主流になっていくと考えています。
+そこで本ハンズオンでは、jHipsterのMasterブランチを用いてJHipster 4による開発を体験したいと思います。
 
 == JHipster 4のインストール
 
-http://jhipster.github.io/installation/[Installing JHipster] に
-リリーズ済みのJHipsterバージョンについての必要なツールのインストール方法はありますが、
+http://jhipster.github.io/installation/[Installing JHipster]
+にはリリーズ済みのJHipsterバージョンについて、必要なツールのインストール方法はありますが、
 JHipster 4についてはまだ用意されていません。
 
 そこで、JHipster 4に必要なツールのインストール方法を次に示します。
 
 . Java 8のインストール http://www.oracle.com/technetwork/java/javase/downloads/index.html[from Oracle]
 . Gitのインストール https://git-scm.com
-. Node.jsのインストール http://nodejs.org. 僕はNode 6.9.4を使ってハンズオンを用意しました。
+. Node.jsのインストール http://nodejs.org. ここでは、Node 6.9.4を使ってハンズオンを用意しました。
 . Yarnのインストール https://yarnpkg.com/en/docs/install[Yarn installation instructions]
 . 次のコマンドを実行して http://yeoman.io/[Yeoman] をインストール
 
@@ -27,15 +27,15 @@ JHipster 4についてはまだ用意されていません。
 yarn global add yo
 ----
 
-JHipster 4 はまだリリースされていないので、GitHubレポジトリからcloneして、それを用いて
-アプリケーションのプロジェクトを作成します。
+JHipster 4 はまだリリースされていないので、GitHubレポジトリからcloneし、
+それを用いてアプリケーションのプロジェクトを作成します。
 
 ----
 git clone https://github.com/jhipster/generator-jhipster
 ----
 
 ローカルにクローンした後、`generator-jhipster` ディレクトリ下で `npm link` を実行します。
-これにより、npmはダウンロードしたローカルコピーをの代わりにこれを使用します。
+これにより、npmはダウンロードしたローカルコピーに代わり、これを使用します。
 
 == Projectの作成
 
@@ -49,9 +49,10 @@ yo jhipster
 ----
 
 blogディレクトリを作成し、そこにアプリケーションのプロジェクトを作成していきます。
-生成するアプリケーションについて、いくつかの質問を聞かれるので、必要な機能を選択していきます。
+`yo jhipster` コマンドを実行すると、生成するアプリケーションについてのいくつかの質問を聞かれるので、
+必要な機能を選択していきます。
 
-このハンズオンでの選択内容は次のスクリーンショットのとおりです。
+このハンズオンで選択した内容は次のスクリーンショットのとおりです。
 
 .アプリケーション作成
 image::static/generating-blog.png[Generating the application, 1082, scaledwidth=100%]
@@ -59,7 +60,7 @@ image::static/generating-blog.png[Generating the application, 1082, scaledwidth=
 空のディレクトリに次の `.yo-rc.json` ファイルをおいて、
 `yo jhipster` コマンドを実行すると、これと同じアプリケーションを作成できます。
 
-その場合、packageNameやpackageFolderは適宜に変更してください。
+なお、packageNameやpackageFolderは適宜に変更してください。
 
 [source,json]
 ----
@@ -101,7 +102,8 @@ image::static/generating-blog.png[Generating the application, 1082, scaledwidth=
 }
 ----
 
-プロジェクトの作成処理の実行が終わると、次のように出力されます。
+選択が完了すると、プロジェクトの作成処理が実行します。
+実行が終わると、次のように出力されます。
 
 .生成成功
 image::static/generation-success.png[Generation success, 1082, scaledwidth=100%]
@@ -109,14 +111,18 @@ image::static/generation-success.png[Generation success, 1082, scaledwidth=100%]
 `./gradlew` を実行すると、アプリケーションが起動します。
 
 http://localhost:8080 をブラウザで起動してください。
-次の画面が表示され、ログインやユーザ登録の方法が書かれたホーム画面が表示されます。
+
+ログインやユーザ登録の方法が書かれた次の画面が表示されます。
 
 .デフォルトホームページ
 image::static/default-homepage.png[Default homepage, 1437, scaledwidth=100%]
 
+上段のメニューバーにある、「アカウント -> 認証」を選択しでログイン画面を表示し、
 ユーザ名 `admin` 、パスワード `admin` でログインしてください。
-メニューバーに管理メニューが追加されます。
-管理メニューは、管理者でログインした場合にのみ表示され、次のような管理用画面が用意されています。
+
+メニューバーに「管理」メニューが追加されます。
+「管理」メニューは、管理者ユーザでログインした場合にのみ表示され、
+次のようなアプリケーション管理用の画面が用意されています。
 
 ユーザ管理
 
@@ -134,14 +140,15 @@ Swaggerドキュメント
 image::static/swagger-docs.png[Swagger docs, 1437, scaledwidth=100%]
 
 別のターミナルウィンドウ（コマンドプロンプト）で次のコマンドを実行すると、
-Protractorによるテストが実行され、アプリケーションが正しく動作していることが確認されます。
+Protractorによるテストが実行され、アプリケーションが正しく動作していることが確認できます。
 
 ----
 yarn run e2e
 ----
 
 アプリケーションの動作確認が出来たら、Gitでソース管理しましょう。
-Gitを用いることで、今後の変更を簡単に管理することができるようになります。
+
+Gitを用いることで、変更を簡単に管理することができるようになります。
 
 ----
 git init
@@ -151,33 +158,33 @@ git commit -m "Project created"
 
 == エンティティの作成
 
-単純なCRUDアプリケーションを作成するだけでも、Entity（テーブル）ごとに次のものが必要となります。
+単純なCRUDアプリケーションを作成するだけでも、エンティティごとに次のものが必要となります。
 
 * データベーステーブル
 * Liquibase change set（データベースのマイグレーション設定）
-* JPAエンティティクラス;
-* Spring Data `JpaRepository` インタフェース;
-* Spring MVC `RestController` クラス;
+* JPAエンティティクラス
+* Spring Data `JpaRepository` インタフェース
+* Spring MVC `RestController` クラス
 * Angular モデル, ルーティング, コンポーネント, ダイアログ コンポーネント, サービス
-* HTMLページ.
+* HTMLページ
 
-さらには、ユニットテスト、統合テストやパフォーマンステストなども必要となります。
+さらに、ユニットテストや統合テスト、パフォーマンステストなども必要となります。
 
-JHipster を用いると、これらのコードが全てを自動生成できます。
-自動生成には、統合テストやパフォーマンステストも含まれます。
+JHipster を用いると、これらのコードを全て自動生成できます。
+自動生成には統合テストやパフォーマンステストも含まれます。
 
 エンティティが外部キーを使用したリレーションを保持している場合、
-そのリレーションに応じたコードも生成できます。
+そのリレーションに応じたコードの生成もできます。
 
-JHipster はいくつかの方法でエンティティのコード生成をサポートしています。
+JHipster はいくつかの方法で、エンティティのコード生成をサポートしています。
 
 https://jhipster.github.io/creating-anentity/[エンティティサブジェネレータ]
 はコマンドラインツールです。
+質問に応答する形式でエンティティを生成できます。
 
-質問に対する応答形式でエンティティを生成できます。
-
-https://jhipster.github.io/jdl-studio/[JDL-Studio] はブラウザベースのGUIツールです。
-JHipster Domain Language (JDL)を用いて、エンティティが設計できます。
+https://jhipster.github.io/jdl-studio/[JDL-Studio]
+はブラウザベースのGUIツールです。
+JHipster Domain Language (JDL)を用いて、エンティティ設計ができます。
 
 今回は、JDL-Studio を用いてエンティティを作成します。
 
@@ -233,20 +240,23 @@ AngularJSコードが大量に生成されます。
 npm link generator-jhipster
 ----
 
-JDL-Studioからファイルをダウンロードして
-次のコマンドを実行すると、指定のファイルをインポートし、
+JDL-Studioからファイルをダウンロードした後、
+次のコマンドを実行すると、指定のファイルをインポートして、
 エンティティやテストのコード、およびUIコードを生成します。
 
 ----
 yo jhipster:import-jdl ~/Downloads/jhipster-jdl.jh
 ----
 
-`src/main/resources/config/liquibase/master.xml` を上書きするかどうかを促されます。
+`~/Downloads/jhipster-jdl.jh` の部分は環境に応じて適宜変更してください。
+
+`src/main/resources/config/liquibase/master.xml`
+を上書きするかどうかを問われます。
 このファイルや他のファイルを上書きするには `a` と入力してください。
 
 `/ .gradlew` でアプリケーションを起動すると、生成したエンティティのCRUD画面が表示できます。
 
-既存で用意されている `admin` と `user` ユーザでいくつかのブログ記事を作成してみてください。
+既存で用意されている `admin` と `user` ユーザでいくつかブログ記事を作成してみてください。
 
 .Blogs
 image::static/blogs.png[Blogs, 1157, scaledwidth=100%]
@@ -254,16 +264,16 @@ image::static/blogs.png[Blogs, 1157, scaledwidth=100%]
 .Entries
 image::static/entries.png[Entries, 1157, scaledwidth=100%]
 
-別のターミナルウィンドウ（コマンドプロンプト）を開いて、
+その後、別のターミナルウィンドウ（コマンドプロンプト）を開いて、
 Protractorによるテストを実行してください。
 
 ----
 yarn run e2e
 ----
 
-エンティティのCRUD画面のテストが正しく動作していることが確認できます。
+CRUD画面のテストが正しく動作していることが確認できます。
 
-では、今までの修正をコミットしましょう。
+では、これまでの修正をコミットしましょう。
 
 ----
 git add .
@@ -272,16 +282,22 @@ git commit -m "Entities generated"
 
 == Gitbucketでのリポジトリ管理
 
+現在、ローカルのgitリポジトリでのみアプリケーションを管理しています。
+
 ここでは、Gitbucketサーバーでリモートリポジトリを作成し、
-今ローカルで管理しているGitリポジトリをリモートリポジトリでも管理します。
-これにより、チームでの共同開発が可能となります。
+現在ローカルで管理しているGitリポジトリをリモートリポジトリで管理します。
+リモートリポジトリが出来ることで、チームでの共同開発が可能となります。
 
 Gitbucketは、GithubやBitcuketのようなSCMのためのウェブサービスです。
 
-https://github.com/gitbucket/gitbucket/releases[ここ] のページより、
+本来はチームで共有しているサーバーにGitbukcetサーバーを立てると思いますが、
+今回のハンズオンではローカルにGitbukcetサーバーを構築し、
+Gitbukcetを用いた開発を体験したいと思います。
+
+https://github.com/gitbucket/gitbucket/releases[こちら] のページより、
 gitbucketの最新リリースを取得できます。
 
-最新の gitbucket.war をダウンロードし、適宜ディレクトリに配置してください。
+最新の `gitbucket.war` をダウンロードし、任意のディレクトリに配置してください。
 
 次のコマンドを実行すると、Gitbucketが9000番ポートで起動します。
 
@@ -292,7 +308,7 @@ java -jar gitbucket.war --port=9000
 .Gitbucket
 image::static/gitbucket.png[scaledwidth=100%]
 
-管理者ユーザが `root`、パスワードが `root`で用意されているので、
+管理者ユーザが `root`、パスワードが `root` で用意されているので、
 それでサインインします。
 
 右上にあるメニューで `System administration` を選択し、適宜ユーザーを
@@ -312,7 +328,7 @@ image::static/gitbucket-create-repository.png[scaledwidth=100%]
 これでGitbucket上にリポジトリが作成出来ました。
 
 すでにGitリポジトリは持っているので、ターミナルウィンドウ（コマンドプロンプト）を開き、
-blogディレクトリ下で画面下に表示されているコマンドを実行します。
+blogディレクトリ下で画面下に表示されている次のコマンドを実行します。
 
 ----
 git remote add origin http://localhost:9000/git/kozake/blog.git
@@ -330,16 +346,14 @@ image::static/gitbucket-blog.png[scaledwidth=100%]
 
 == Jenkinsでのビルド
 
-ここでは、Jenkinsサーバーでblogアプリケーションのジョブを作成し、
-ビルドを自動化します。
+Jenkinsサーバーでblogアプリケーションのジョブを作成し、ビルドを自動化しましょう。
 
 JenkinsはCIツールと呼ばれるもので、アプリケーションの継続的インテグレーション開発を
 サポートします。
 
-https://jenkins.io/[ここ] のページより、
-Jenkinsの最新リリースを取得できます。
+https://jenkins.io/[こちら] のページよりJenkinsの最新リリースを取得できます。
 
-最新の jenkins.war をダウンロードし、適宜ディレクトリに配置してください。
+`jenkins.war` をダウンロードし、任意のディレクトリに配置してください。
 
 次のコマンドを実行すると、Jenkinsが9001番ポートで起動します。
 
@@ -347,65 +361,64 @@ Jenkinsの最新リリースを取得できます。
 java -jar jenkins.war --httpPort=9001
 ----
 
-.Jenkins Getting Started
-image::static/jenkins-getting-started.png[scaledwidth=100%]
-
 初回インストール時に、`admin` ユーザが自動生成され、
 そのパスワードがターミナルウィンドウ（コマンドプロンプト）に表示されますので
 そのパスワードを入力してください。
 
+.Jenkins Getting Started
+image::static/jenkins-getting-started.png[scaledwidth=100%]
+
+次に、よく使用されるプラグインをインストールするかどうかを聞かれます。
+`Install suggested plugins` を選択してください。
+
 .Jenkins Customize
 image::static/jenkins-customize.png[scaledwidth=100%]
-
-次に、よく使用されるプラグインをインストールするかどうかを聞かれるので、
-`Install suggested plugins` を選択してください。
 
 .Jenkins Getting Started
 image::static/jenkins-install-plugin.png[scaledwidth=100%]
 
 プラグインのインストールが完了したら、次の画面が表示されます。
+適宜、管理者ユーザを作成してください。
 
 .Jenkins Create First Adin User
 image::static/jenkins-create-admin.png[scaledwidth=100%]
 
-適宜、管理者ユーザを作成してください。
+Jenkinsのホーム画面が表示されます。
 
 .Jenkins Home
 image::static/jenkins-home.png[scaledwidth=100%]
 
-Jenkinsのホーム画面が表示されます。
-
 Jenkins2によるJHipsterのビルド作成手順は
-https://jhipster.github.io/setting-up-ci-jenkins2/[ここ]を参照してください。
+https://jhipster.github.io/setting-up-ci-jenkins2/[こちら]を参照してください。
 
-JHipsterはJenkinsfileを生成してくれるので、簡単にジョブを作成できます。
-
-.Jenkins Create Job
-image::static/jenkins-create-job.png[scaledwidth=100%]
+JHipsterが `Jenkinsfile` を生成してくれているので、簡単にジョブを作成できます。
 
 `Enter an item name` に `jhipster-blog-app` を入力し、
 `Pipeline` を選択します。
 
-.Jenkins Setting Job
-image::static/jenkins-setting-job.png[scaledwidth=100%]
+.Jenkins Create Job
+image::static/jenkins-create-job.png[scaledwidth=100%]
 
 Jobの設定画面にて、`Definition` に `Pipeline script from SCM`
 `SCM` に `Git`
 `Repository URL` にGitbucket上に作成したGitのURLを設定します。
+
+.Jenkins Setting Job
+image::static/jenkins-setting-job.png[scaledwidth=100%]
 
 これでJenkinsにジョブを生成できました。
 
 .Jenkins Created Job
 image::static/jenkins-created-job.png[scaledwidth=100%]
 
-ジョブの右にある実行ボタンを押すと、ジョブが実行され、テストの実行、ビルドの作成が行われます。
+ジョブの右にある実行ボタンを押すと、ジョブが実行され、テスト実行、ビルド作成が行われます。
 
 == ビジネスロジックの追加
 
 現在、ユーザーはお互いのエントリーを見ることができます。
-これを変更していきたいと思います。
+セキュリティ的にも好ましいものではないので、これを変更していきたいと思います。
 
-TIP: JHipsterプロジェクトをIntellij IDEAで設定する場合、ここをご覧ください。 https://jhipster.github.io/configuring-ide-idea/[Configuring Intellij IDEA].
+TIP: JHipsterプロジェクトをIntellij IDEAで設定する場合、こちらをご覧ください。 https://jhipster.github.io/configuring-ide-idea/[Configuring Intellij IDEA].
 
 ブログやエントリーのセキュリティを強化するために、
 `BlogResource.java` を開き、 `getAllBlogs（）` メソッドを探して、
@@ -426,7 +439,7 @@ List<Blog> blogs = blogRepository.findByUserIsCurrentUser();
 
 に変更します。
 
-`findByUserIsCurrentUser（）` メソッドは、JHipsterで生成されています。
+`findByUserIsCurrentUser（）` メソッドは、JHipsterで既に生成されています。
 `BlogRespository` クラスに定義されており、現在ログイン中のユーザが保持するのデータに
 検索結果を絞り込むことができます。
 
@@ -441,15 +454,15 @@ public interface BlogRepository extends JpaRepository<Blog,Long> {
 }
 ----
 
-この変更を行った後、 http://docs.spring.io/spring-boot/docs/current/reference/html/using-boot-devtools.html[Spring Boot's Developer tools]のおかげで
-アプリケーションが再起動して、 `BlogResource` が再コンパイルされます。
+この変更を行った後、 http://docs.spring.io/spring-boot/docs/current/reference/html/using-boot-devtools.html[Spring Boot's Developer tools]
+のおかげでアプリケーションが再起動し、 `BlogResource` が再コンパイルされます。
 
 http://localhost:8080/blogs に移動すると、現在のユーザーのブログだけが表示されます。
 
 .管理者ブログ
 image::static/blogs-admin.png[Admin's blog, 1157, scaledwidth=100%]
 
-エントリーに同じロジックを追加するには、 `EntryResource.java`　の、
+エントリーにも同じロジックを追加するために、 `EntryResource.java`　の、
 `getAllEntries()` メソッドを探して、
 
 [source,java]
@@ -468,7 +481,7 @@ Page<Entry> page = entryRepository.findByBlogUserLoginOrderByDateDesc(SecurityUt
 
 に変更します。
 
-IDEを使用して、次のメソッドを `EntryRepository` クラスに追加します。
+また、次のメソッドを `EntryRepository` クラスに追加します。
 
 [source,java]
 .src/main/java/org/jhipster/repository/EntryRepository.java
@@ -481,19 +494,21 @@ Page<Entry> findByBlogUserLoginOrderByDateDesc(String currentUserLogin, Pageable
 .Userのエントリー
 image::static/entries-user.png[User's entries, 1157, scaledwidth=100%]
 
-変更後、Gitにコミットしてください。
+変更をGitにコミットしましょう。
 
 ----
 git add .
 git commit -m "Add business logic"
 ----
 
-まだブログのようには見えません。
-コンテンツフィールドにHTMLの記述が許可されていません。
-
 == UIの変更
 
+まだブログのようには見えません。
+コンテンツフィールドにHTMLの記述が許可されていません。
+見た目をブログのように変更していきましょう。
+
 UIの開発を行う場合、変更が即時ブラウザで確認できたほうがいいですよね。
+
 JHipster 4では、 https://www.browsersync.io/[Browsersync]と https://webpack.github.io/[webpack]を使用して
 この機能を提供します。
 
@@ -513,9 +528,10 @@ npm start
 
 ==== コンテンツをtextareaへ
 
-`entry-dialog.component.html` を開き、`content` の `<input>` フィールドを
-`<textarea>` に変更してください。
-この変更を行った後は次のようになります。
+`entry-dialog.component.html` を開き、
+`content` の `<input>` フィールドを `<textarea>` に変更してください。
+
+この変更を行うと、次のようになります。
 
 [source,html]
 .src/main/webapp/app/entities/entry/entry-dialog.component.html
@@ -526,12 +542,12 @@ npm start
 
 ==== HTMLを許可
 
-このフィールドにHTMLを入力すると、リスト画面でエスケープされていることがわかります。
+このフィールドにHTMLを入力すると、画面でエスケープされていることがわかります。
 
 .エスケープされたHTML
 image::static/entries-with-html-escaped.png[Escaped HTML, 1216, scaledwidth=100%]
 
-この動作を変更するには、 `entry.component.html` を開いて次の行を変更してください。
+これを変更するには、 `entry.component.html` を開いて次の行を、
 
 [source,html]
 .src/main/webapp/app/entities/entry/entry.component.html
@@ -549,12 +565,12 @@ image::static/entries-with-html-escaped.png[Escaped HTML, 1216, scaledwidth=100%
 
 に変更してください。
 
-この変更を行うと、HTMLがエスケープされなくなったことがわかります。
+この変更で、HTMLがエスケープされなくなったことがわかります。
 
 .HTMLで表示されたエントリー
 image::static/entries-with-html.png[Escaped HTML, 1216, scaledwidth=100%]
 
-変更後、Gitにコミットしてください。
+変更をGitにコミットしましょう。
 
 ----
 git add .
@@ -563,7 +579,7 @@ git commit -m "for html"
 
 ==== レイアウト変更
 
-エントリのリストをブログのようにするために、
+エントリの見た目をブログのようにするために、
 `<div class =" table-responsive ">` と `<table>` を次のHTMLで置き換えます。
 
 [source,html]
@@ -596,6 +612,8 @@ git commit -m "for html"
 .Blog entries
 image::static/blog-entries.png[Blog entries, 1122, scaledwidth=100%]
 
+変更をGitにコミットしましょう。
+
 ----
 git add .
 git commit -m "Changed layout"
@@ -603,9 +621,9 @@ git commit -m "Changed layout"
 
 == クラウドへデプロイ
 
-JHipsterアプリケーションは、SpringBootアプリケーションをデプロイできる場所ならどこにでも配置できます。
+JHipsterで作成したアプリケーションは、SpringBootアプリケーションをデプロイできる場所ならどこにでも配置できます。
 
-JHipster は次のクラウドサービスにデプロイできます。
+次のクラウドサービスにデプロイできます。
 
 * https://jhipster.github.io/cloudfoundry/[Cloud Foundry]
 * https://jhipster.github.io/heroku/[Heroku]
@@ -615,7 +633,7 @@ JHipster は次のクラウドサービスにデプロイできます。
 
 ここでは、Herokuにデプロイしてみます。
 
-JHipsterアプリケーションの準備するにあたり、
+JHipsterアプリケーションを準備するにあたり、
 事前に設定された "production"プロファイルを使用することをお勧めします。
 Gradleの場合、ビルド時に `prod` プロファイルを指定します。
 
@@ -632,7 +650,8 @@ webpackを使って `yarn run webpack：prod`　を実行することでこれ�
 `application-prod.yaml` ファイルで http://graphite.wikidot.com/[Graphite]サーバーが設定されている場合、
 アプリケーションは自動的にメトリクスデータをそこに送ります。
 
-このブログアプリケーションをアップロードするために、コマンドラインから `heroku login` を使ってHerokuアカウントにログインします。
+このブログアプリケーションをHerokuにアップロードするには、
+コマンドラインから `heroku login` を使ってHerokuアカウントにログインします。
 https://devcenter.heroku.com/articles/heroku-command-line[Heroku CLI]がインストールされている必要があります。
 
 ----
@@ -645,7 +664,7 @@ Logged in as sh.kozake@gmail.com
 
 http://jhipster.github.io/heroku/[Deploying to Heroku] ドキュメントで推奨されているように、
 `yo jhipster：heroku` を実行しました。
-プロンプトが表示されたら私のアプリケーションには "jhipster4-handson-blog"という名前を使用しました。
+アプリケーション名には "jhipster4-handson-blog"という名前を使用しました。
 
 ----
 $ yo jhipster:heroku
@@ -711,7 +730,9 @@ After application modification, redeploy it with
 	yo jhipster:heroku
 ----
 
-`heroku open` を走らせ、`admin` としてログインして実行できました！！
+`heroku open` を実行し、`admin` でログインできました！！
+
+これで、インターネット上にサービスが提供されたのです。
 
 .JHipster 4 demo on Heroku
 image::static/jhipster-4-handson-blog-heroku.png[JHipster 4 demo on Heroku, 1122, scaledwidth=100%]
