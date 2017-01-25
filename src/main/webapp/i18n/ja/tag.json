@@ -1,0 +1,23 @@
+{
+    "blogApp": {
+        "tag" : {
+            "home": {
+                "title": "Tags",
+                "createLabel": "Tag を追加",
+                "createOrEditLabel": "Tagを追加または編集",
+                "search": "Search for Tag"
+            },
+            "created": "A new Tag is created with identifier {{ param }}",
+            "updated": "A Tag is updated with identifier {{ param }}",
+            "deleted": "A Tag is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Tag {{ id }}を削除してもよろしいですか？"
+            },
+            "detail": {
+                "title": "Tag"
+            },
+            "name": "Name",
+            "entry": "Entry"
+        }
+    }
+}

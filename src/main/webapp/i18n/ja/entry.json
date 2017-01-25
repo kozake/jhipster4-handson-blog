@@ -1,0 +1,26 @@
+{
+    "blogApp": {
+        "entry" : {
+            "home": {
+                "title": "Entries",
+                "createLabel": "Entry を追加",
+                "createOrEditLabel": "Entryを追加または編集",
+                "search": "Search for Entry"
+            },
+            "created": "A new Entry is created with identifier {{ param }}",
+            "updated": "A Entry is updated with identifier {{ param }}",
+            "deleted": "A Entry is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Entry {{ id }}を削除してもよろしいですか？"
+            },
+            "detail": {
+                "title": "Entry"
+            },
+            "title": "Title",
+            "content": "Content",
+            "date": "Date",
+            "blog": "Blog",
+            "tag": "Tag"
+        }
+    }
+}
