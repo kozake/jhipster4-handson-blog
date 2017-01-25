@@ -17,25 +17,25 @@ node {
         sh "./gradlew npmInstall -PnodeInstall"
     }
 
-    stage('backend tests') {
-        try {
-            sh "./gradlew test -PnodeInstall"
-        } catch(err) {
-            throw err
-        } finally {
-            junit '**/build/**/TEST-*.xml'
-        }
-    }
+    // stage('backend tests') {
+    //     try {
+    //         sh "./gradlew test -PnodeInstall"
+    //     } catch(err) {
+    //         throw err
+    //     } finally {
+    //         junit '**/build/**/TEST-*.xml'
+    //     }
+    // }
 
-    stage('frontend tests') {
-        try {
-            sh "./gradlew gulp_test -PnodeInstall"
-        } catch(err) {
-            throw err
-        } finally {
-            junit '**/build/test-results/karma/TESTS-*.xml'
-        }
-    }
+    // stage('frontend tests') {
+    //     try {
+    //         sh "./gradlew gulp_test -PnodeInstall"
+    //     } catch(err) {
+    //         throw err
+    //     } finally {
+    //         junit '**/build/test-results/karma/TESTS-*.xml'
+    //     }
+    // }
 
     stage('packaging') {
         sh "./gradlew bootRepackage -x test -Pprod -PnodeInstall"
