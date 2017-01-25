@@ -31,6 +31,7 @@
     "languages": [
       "ja",
       "en"
-    ]
+    ],
+    "herokuAppName": "jhipster-4-handson-blog"
   }
 }
