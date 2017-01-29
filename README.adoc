@@ -43,7 +43,7 @@ git clone https://github.com/jhipster/generator-jhipster
 任意のディレクトリ配下で、以下のコマンドを実行します。
 
 ----
-mdkdir blog
+mkdir blog
 cd blog
 yo jhipster
 ----
